@@ -6,11 +6,6 @@
 
 This is a Node.js command-line application that takes in information about employees on a software engineering team and generates an HTML webpage that displays summaries for each person.
 
-## Demo
-
-<img src="/DemoImgs/TeamGeneratorGif.gif?raw=true">
-<img src="/DemoImgs/S1.png?raw=true">
-
 ## Table of Contents
 
 * [Usage](#usage)
