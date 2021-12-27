@@ -1,10 +1,14 @@
+// Required Items
 const inquirer = require("inquirer");
 const fs = require("fs");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 
+// Array to hodl employees
 const employees = [];
+
+// Warm intro to app
 const introQuestion = {
 	type: 'list',
 	message: `
@@ -17,11 +21,7 @@ const introQuestion = {
 	name: 'introQ',
 };
 
-function initApp() {
-    makeHtml();
-    addMember();
-}
-
+// Intro/main start function
 function cliIntro() {
 	inquirer.prompt(introQuestion).then((appStart) => {
 		if (appStart.introQ === 'Yes, Start Building Team') {
@@ -34,6 +34,13 @@ function cliIntro() {
 	});
 }
 
+// Function for main functionality
+function initApp() {
+    makeHtml();
+    addMember();
+}
+
+// Questions for CLI team member info
 function addMember() {
     inquirer.prompt([{
         message: "Enter team member's name.",
@@ -102,6 +109,7 @@ function addMember() {
     });
 }
 
+// Function for starting HTML
 function makeHtml() {
     const html = `<!DOCTYPE html>
     <html lang="en">
@@ -135,6 +143,7 @@ function makeHtml() {
     console.log("start");
 }
 
+// Function for appending team info to HTML
 function addHtml(member) {
     return new Promise(function(resolve, reject) {
         const name = member.getName();
@@ -201,15 +210,10 @@ function addHtml(member) {
             };
             return resolve();
         });
-    });
-    
-            
-    
-        
-    
-    
+    });  
 }
 
+// Funtion for closing out HTML
 function endHtml() {
     const html = ` </div>
     </div>
@@ -227,5 +231,5 @@ function endHtml() {
     `);
 }
 
-
+// Main app call to start
 cliIntro();
